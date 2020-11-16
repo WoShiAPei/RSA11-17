@@ -8,90 +8,94 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug"/>
+				<Option working_dir="C:/Users/10/Desktop/RSA-master/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="RSA">
-				<Option output="C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/RSA.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug"/>
+				<Option output="C:/Users/10/Desktop/RSA-master/cmake-build-debug/RSA.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/10/Desktop/RSA-master/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="F:/xiekangpei/MSYS2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../include/c++/10.2.0"/>
-					<Add directory="F:/xiekangpei/MSYS2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../include/c++/10.2.0/x86_64-w64-mingw32"/>
-					<Add directory="F:/xiekangpei/MSYS2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../include/c++/10.2.0/backward"/>
-					<Add directory="F:/xiekangpei/MSYS2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/10.2.0/include"/>
-					<Add directory="F:/xiekangpei/MSYS2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../include"/>
-					<Add directory="F:/xiekangpei/MSYS2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/10.2.0/include-fixed"/>
-					<Add directory="F:/xiekangpei/MSYS2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="e:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../include/c++/9.2.0"/>
+					<Add directory="e:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../include/c++/9.2.0/x86_64-w64-mingw32"/>
+					<Add directory="e:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../include/c++/9.2.0/backward"/>
+					<Add directory="e:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/include"/>
+					<Add directory="e:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/include-fixed"/>
+					<Add directory="e:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 RSA"/>
-					<CompileFile command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 RSA"/>
+					<CompileFile command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="RSA/fast">
-				<Option output="C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/RSA.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug"/>
+				<Option output="C:/Users/10/Desktop/RSA-master/cmake-build-debug/RSA.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/10/Desktop/RSA-master/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="F:/xiekangpei/MSYS2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../include/c++/10.2.0"/>
-					<Add directory="F:/xiekangpei/MSYS2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../include/c++/10.2.0/x86_64-w64-mingw32"/>
-					<Add directory="F:/xiekangpei/MSYS2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../include/c++/10.2.0/backward"/>
-					<Add directory="F:/xiekangpei/MSYS2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/10.2.0/include"/>
-					<Add directory="F:/xiekangpei/MSYS2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../include"/>
-					<Add directory="F:/xiekangpei/MSYS2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/10.2.0/include-fixed"/>
-					<Add directory="F:/xiekangpei/MSYS2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/10.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="e:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../include/c++/9.2.0"/>
+					<Add directory="e:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../include/c++/9.2.0/x86_64-w64-mingw32"/>
+					<Add directory="e:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../include/c++/9.2.0/backward"/>
+					<Add directory="e:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/include"/>
+					<Add directory="e:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/include-fixed"/>
+					<Add directory="e:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 RSA/fast"/>
-					<CompileFile command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 RSA/fast"/>
+					<CompileFile command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug"/>
+				<Option working_dir="C:/Users/10/Desktop/RSA-master/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug"/>
+				<Option working_dir="C:/Users/10/Desktop/RSA-master/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="F:/xiekangpei/MSYS2/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Administrator/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/Mingw/bin/mingw32-make.exe -f &quot;C:/Users/10/Desktop/RSA-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Administrator/Desktop/RSA-master/BigInteger.cpp">
+		<Unit filename="C:/Users/10/Desktop/RSA-master/BigInteger.cpp">
 			<Option target="RSA"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/RSA-master/BigInteger.h">
+		<Unit filename="C:/Users/10/Desktop/RSA-master/BigInteger.h">
 			<Option target="RSA"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/RSA-master/main.cpp">
+		<Unit filename="C:/Users/10/Desktop/RSA-master/RSA.cpp">
 			<Option target="RSA"/>
 		</Unit>
-		<Unit filename="C:/Users/Administrator/Desktop/RSA-master/CMakeLists.txt">
+		<Unit filename="C:/Users/10/Desktop/RSA-master/RSA.h">
+			<Option target="RSA"/>
+		</Unit>
+		<Unit filename="C:/Users/10/Desktop/RSA-master/main.cpp">
+			<Option target="RSA"/>
+		</Unit>
+		<Unit filename="C:/Users/10/Desktop/RSA-master/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
