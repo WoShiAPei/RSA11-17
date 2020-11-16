@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/10/Desktop/RSA-master/BigInteger.h
+bits/stdc++.h
+-
+
+C:/Users/10/Desktop/RSA-master/RSA.h
+BigInteger.h
+C:/Users/10/Desktop/RSA-master/BigInteger.h
+
+C:/Users/10/Desktop/RSA-master/main.cpp
+BigInteger.h
+C:/Users/10/Desktop/RSA-master/BigInteger.h
+RSA.h
+C:/Users/10/Desktop/RSA-master/RSA.h
+
