@@ -5,6 +5,7 @@
 #ifndef RSA_BIGINTEGER_H
 #define RSA_BIGINTEGER_H
 #include <bits/stdc++.h>
+#include <iostream.h>
 
 class BigInteger;
 #define fuck1(x) std::cout<<x<<std::endl
