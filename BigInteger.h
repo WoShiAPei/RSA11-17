@@ -5,7 +5,6 @@
 #ifndef RSA_BIGINTEGER_H
 #define RSA_BIGINTEGER_H
 #include <bits/stdc++.h>
-#include <iostream.h>
 
 class BigInteger;
 #define fuck1(x) std::cout<<x<<std::endl
@@ -14,23 +13,25 @@ class BigInteger;
 
 #define fuck3(x,y,z) std::cout<<x<<" "<<y<<" "<<z<<std::endl
 typedef std::pair<BigInteger,BigInteger> divPair;
-
 class BigInteger{
 public:
     BigInteger();
     BigInteger(const std::string &);//十六进制字符串初始化
+    BigInteger(int a);
+    BigInteger(const char);
     explicit BigInteger(std::vector<int> bits){
         this->bits = std::move(bits);
     }
 
     std::vector<int> getBits(){return bits;};
-    std::vector<int> getByteBits(){return byteBits;}
+    std::vector<int> getByteBits(){return this->byteBits;}
 
     void setByteBits(std::vector<int> bytebits){
         this->byteBits = bytebits;
     }
     void PrintBits();
     static std::vector<int> getBit(BigInteger a);
+    static std::vector<int> getTenBit(BigInteger a);
     static BigInteger add(BigInteger a, BigInteger b);
     static BigInteger sub(BigInteger a, BigInteger b);
     static BigInteger mul(BigInteger a, BigInteger b);
@@ -45,8 +46,13 @@ public:
     static const BigInteger zero;
     static const BigInteger one;
     static const BigInteger two;
+    static const BigInteger three;
     static BigInteger fastExponent(BigInteger a, BigInteger e, BigInteger n);
-    BigInteger fastExponentNewton(BigInteger a,BigInteger n);
+    void ComputeInverse();
+    BigInteger Mente_Mul(BigInteger a,BigInteger b);
+    BigInteger fastExponentNewton(BigInteger a,BigInteger e);
+    void Reduce();
+    void RightShift();
 
 
 
@@ -54,5 +60,7 @@ private:
     std::vector<int> bits;
     std::vector<int> byteBits;
     bool isNegative = false;
+    std::vector<int> Inverse;
+    std::vector<int> intermedia;
 };
 #endif //RSA_BIGINTEGER_H

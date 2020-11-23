@@ -1,7 +1,7 @@
-set(CMAKE_CXX_COMPILER "E:/Mingw/bin/g++.exe")
+set(CMAKE_CXX_COMPILER "F:/xiekangpei/MSYS2/mingw64/bin/g++.exe")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "GNU")
-set(CMAKE_CXX_COMPILER_VERSION "9.2.0")
+set(CMAKE_CXX_COMPILER_VERSION "10.2.0")
 set(CMAKE_CXX_COMPILER_VERSION_INTERNAL "")
 set(CMAKE_CXX_COMPILER_WRAPPER "")
 set(CMAKE_CXX_STANDARD_COMPUTED_DEFAULT "14")
@@ -19,11 +19,11 @@ set(CMAKE_CXX_SIMULATE_VERSION "")
 
 
 
-set(CMAKE_AR "E:/Mingw/bin/ar.exe")
-set(CMAKE_CXX_COMPILER_AR "E:/Mingw/bin/gcc-ar.exe")
-set(CMAKE_RANLIB "E:/Mingw/bin/ranlib.exe")
-set(CMAKE_CXX_COMPILER_RANLIB "E:/Mingw/bin/gcc-ranlib.exe")
-set(CMAKE_LINKER "E:/Mingw/bin/ld.exe")
+set(CMAKE_AR "F:/xiekangpei/MSYS2/mingw64/bin/ar.exe")
+set(CMAKE_CXX_COMPILER_AR "F:/xiekangpei/MSYS2/mingw64/bin/gcc-ar.exe")
+set(CMAKE_RANLIB "F:/xiekangpei/MSYS2/mingw64/bin/ranlib.exe")
+set(CMAKE_CXX_COMPILER_RANLIB "F:/xiekangpei/MSYS2/mingw64/bin/gcc-ranlib.exe")
+set(CMAKE_LINKER "F:/xiekangpei/MSYS2/mingw64/bin/ld.exe")
 set(CMAKE_MT "")
 set(CMAKE_COMPILER_IS_GNUCXX 1)
 set(CMAKE_CXX_COMPILER_LOADED 1)
@@ -82,7 +82,7 @@ endif()
 
 
 
-set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "E:/Mingw/include/c++/9.2.0;E:/Mingw/include/c++/9.2.0/x86_64-w64-mingw32;E:/Mingw/include/c++/9.2.0/backward;E:/Mingw/lib/gcc/x86_64-w64-mingw32/9.2.0/include;E:/Mingw/lib/gcc/x86_64-w64-mingw32/9.2.0/include-fixed;E:/Mingw/x86_64-w64-mingw32/include")
-set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;mingw32;gcc;moldname;mingwex;pthread;advapi32;shell32;user32;kernel32;mingw32;gcc;moldname;mingwex")
-set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "E:/Mingw/lib/gcc/x86_64-w64-mingw32/9.2.0;E:/Mingw/lib/gcc;E:/Mingw/x86_64-w64-mingw32/lib;E:/Mingw/lib")
+set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "F:/xiekangpei/MSYS2/mingw64/include/c++/10.2.0;F:/xiekangpei/MSYS2/mingw64/include/c++/10.2.0/x86_64-w64-mingw32;F:/xiekangpei/MSYS2/mingw64/include/c++/10.2.0/backward;F:/xiekangpei/MSYS2/mingw64/lib/gcc/x86_64-w64-mingw32/10.2.0/include;F:/xiekangpei/MSYS2/mingw64/include;F:/xiekangpei/MSYS2/mingw64/lib/gcc/x86_64-w64-mingw32/10.2.0/include-fixed;F:/xiekangpei/MSYS2/mingw64/x86_64-w64-mingw32/include")
+set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;mingw32;gcc_s;gcc;moldname;mingwex;kernel32;pthread;advapi32;shell32;user32;kernel32;mingw32;gcc_s;gcc;moldname;mingwex;kernel32")
+set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "F:/xiekangpei/MSYS2/mingw64/lib/gcc/x86_64-w64-mingw32/10.2.0;F:/xiekangpei/MSYS2/mingw64/lib/gcc;F:/xiekangpei/MSYS2/mingw64/x86_64-w64-mingw32/lib;F:/xiekangpei/MSYS2/mingw64/lib")
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

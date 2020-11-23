@@ -3,20 +3,21 @@
 //
 
 #include "RSA.h"
-bool isprime[100000];
+int prime[100000],cnt = 0;
+bool vis[5005];
 inline BigInteger euler(){
-    for(int i = 2;i<=1010;i++)isprime[i] = true;
-    isprime[2] = 1;
-    for(int i = 2;i<=1005;i++){
-        if(isprime[i]){
-            for(int j = 2*i;j<=1005;j++){
-                isprime[i] =false;
-            }
+    for(int i = 2;i<=1010;i++)vis[i] = 0;
+    for(int i = 2;i<1005;i++){
+        if(!vis[i])prime[cnt++] = i;
+        for(int j = 0;j<cnt&i*prime[j]<1005;j++){
+            vis[i*prime[j]] = 1;
+            if(i%prime[j]==0)break;
         }
+
     }
     BigInteger temp("1");
-    for(int i = 3;i<=1000;i++){
-        std::string now = std::to_string(i);
+    for(int i = 1;i<cnt;i++){
+        std::string now = std::to_string(prime[i]);
         temp = BigInteger::mul(temp,BigInteger(now));
     }
     return temp;
@@ -47,12 +48,18 @@ void RSA::init(const int len) {
 //    d = BigInteger("7");
 //    n = BigInteger("33");
     //BigInteger judge = BigInteger::extendEuclidean(e,euln);
+    std::vector<int> bytebits = e.getBit(e);
+    e.setByteBits(bytebits);
+    bytebits = d.getBit(d);
+    d.setByteBits(bytebits);
 }
 bool RSA::isPrime(BigInteger a, int cnt) {
+
+
     if(BigInteger::comp(a,BigInteger::one)==0)return false;
     if(BigInteger::comp(a,BigInteger::two)==0)return true;
-  //  BigInteger judge = BigInteger::euclidean(a,bigTable);
-    //if(BigInteger::comp(judge,BigInteger::one)!=0)return false;
+    BigInteger judge = BigInteger::euclidean(bigTable,a);
+    if(BigInteger::comp(judge,BigInteger::one)!=0)return false;
 
     BigInteger x = BigInteger::sub(a,BigInteger::one);
     int s = 0;
@@ -67,7 +74,9 @@ bool RSA::isPrime(BigInteger a, int cnt) {
     x = BigInteger::sub(a,BigInteger::one);
 //    fuck1(s);
 //    t.PrintBits();
+
     std::vector<int> bytebits = t.getBit(t);
+
     t.setByteBits(bytebits);
     int prim[] = {2,3,5,7,11,13,17,19,23,29,31};
     for(int i = 0;i<cnt;i++){
@@ -77,7 +86,8 @@ bool RSA::isPrime(BigInteger a, int cnt) {
         BigInteger AA(realA);
         //std::chrono::time_point<std::chrono::system_clock> start, end;
         //start = std::chrono::system_clock::now();
-        b = BigInteger::fastExponent(AA,t,a);
+       // b = BigInteger::fastExponent(AA,t,a);
+        b = a.fastExponentNewton(AA,t);
        // b.PrintBits();
         //end = std::chrono::system_clock::now();
         //std::cout << "generation time: " << std::dec << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
@@ -112,7 +122,8 @@ BigInteger RSA::createOddNum(int len) {
 //    }
     std::string temp;
     std::random_device rd;
-    for(int i = 0;i<len-1;i++){
+    temp.push_back('1');
+    for(int i = 0;i<len-2;i++){
         int k = rd()%10;
        // while(i==0&&k==0)k = rd()%10;
         temp.push_back(k+'0');
@@ -122,10 +133,23 @@ BigInteger RSA::createOddNum(int len) {
 }
 BigInteger RSA::createPrime(int len, int cnt) {
     BigInteger ans = createOddNum(len/2);
-    while(!isPrime(ans,cnt)){
+    std::chrono::time_point<std::chrono::system_clock> start, end;
+    start = std::chrono::system_clock::now();
+    while(!isPrime(ans,1)){
+        end = std::chrono::system_clock::now();
+        std::cout << "generation time: " << std::dec << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
         ans = BigInteger::add(ans,BigInteger::two);
+        if(ans.getBits()[0]==5||ans.getBits()[0]==9)  ans = BigInteger::add(ans,BigInteger::two);
+        //ans.PrintBits();
     }
+    ans.PrintBits();
     return ans;
+}
+
+BigInteger RSA::encryptSingle(char ch) {
+     BigInteger m(ch);
+     m = BigInteger::fastExponent(m,e,n);
+    return m;
 }
 
 BigInteger RSA::encrypt(std::string str) {

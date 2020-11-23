@@ -6,17 +6,11 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/10/Desktop/RSA-master/BigInteger.h
+C:/Users/Administrator/Desktop/RSA11-17-master/RSA11-17-master/BigInteger.cpp
+BigInteger.h
+C:/Users/Administrator/Desktop/RSA11-17-master/RSA11-17-master/BigInteger.h
+
+C:/Users/Administrator/Desktop/RSA11-17-master/RSA11-17-master/BigInteger.h
 bits/stdc++.h
 -
-
-C:/Users/10/Desktop/RSA-master/RSA.h
-BigInteger.h
-C:/Users/10/Desktop/RSA-master/BigInteger.h
-
-C:/Users/10/Desktop/RSA-master/main.cpp
-BigInteger.h
-C:/Users/10/Desktop/RSA-master/BigInteger.h
-RSA.h
-C:/Users/10/Desktop/RSA-master/RSA.h
 

@@ -14,6 +14,7 @@ public:
     void init(const int len);
     BigInteger encrypt(std::string str);
     BigInteger decrypt(BigInteger c);
+    BigInteger encryptSingle(char ch);
     BigInteger createPrime(int len,int cnt);
     BigInteger createOddNum(int len);
     bool isPrime(BigInteger a,int cnt);

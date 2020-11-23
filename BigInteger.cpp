@@ -7,9 +7,30 @@
 const BigInteger BigInteger::zero(std::vector<int>(1,0));
 const BigInteger BigInteger::one(std::vector<int>(1,1));
 const BigInteger BigInteger::two(std::vector<int>(1,2));
+const BigInteger BigInteger::three(std::vector<int>(1,3));
 
 
 BigInteger::BigInteger() = default;
+BigInteger::BigInteger(char ch){
+    int k = ch;
+    while(k){
+        bits.push_back(k%10);
+        k/=10;
+    }
+}
+
+BigInteger::BigInteger(int a) {
+    if(a<10){
+        bits.push_back(a);
+    }
+    else{
+        while(a){
+            bits.push_back(a%10);
+            a/=10;
+        }
+    }
+
+}
 
 BigInteger::BigInteger(const std::string & str) {
     std::string t(str);
@@ -35,15 +56,15 @@ BigInteger::BigInteger(const std::string & str) {
     for(int i = len-1;i>=0;i--){
         bits.push_back(t[i]-'0');
     }
-    BigInteger tmp(bits);
-    while(comp(tmp,two)==1){
-        divPair now = div(tmp,two);
-        if(comp(now.second,zero)==0)byteBits.push_back(0);
-        else byteBits.push_back(1);
-        tmp = now.first;
-       // tmp.PrintBits();
-    }
-    byteBits.push_back(1);
+//    BigInteger tmp(bits);
+//    while(comp(tmp,two)==1){
+//        divPair now = div(tmp,two);
+//        if(comp(now.second,zero)==0)byteBits.push_back(0);
+//        else byteBits.push_back(1);
+//        tmp = now.first;
+//       // tmp.PrintBits();
+//    }
+//    byteBits.push_back(1);
     //fuck1("me");
 }
 
@@ -67,6 +88,7 @@ void BigInteger::PrintBits() {
 
 
 int BigInteger::comp(BigInteger a, BigInteger b) {
+    if(a.isNegative)return -1;
     if(a.bits.size()<b.bits.size())
         return -1;
     if(a.bits.size()>b.bits.size())
@@ -92,14 +114,30 @@ BigInteger BigInteger::add(BigInteger a, BigInteger b) {
     a.bits.resize(maxlen,0);
     b.bits.resize(maxlen,0);
     std::vector<int> res(maxlen+1,0);
-    int carry = 0;
-    for(size_t i = 0;i<maxlen;i++){
-        res[i]= a.bits[i] + b.bits[i] + carry;
-        carry = 0;
-        if(res[i]>=10)res[i] = res[i] - 10,carry = 1;
+    BigInteger ans;
+    if(a.isNegative == b.isNegative){
+        int carry = 0;
+        for(size_t i = 0;i<maxlen;i++){
+            res[i]= a.bits[i] + b.bits[i] + carry;
+            carry = 0;
+            if(res[i]>=10)res[i] = res[i] - 10,carry = 1;
+        }
+        res[maxlen] = carry;
+        ans = trimp(BigInteger(res));
+        ans.isNegative = a.isNegative;
     }
-    res[maxlen] = carry;
-    return trimp(BigInteger(res));
+    else{
+        if(!a.isNegative){
+            b.isNegative = false;
+            return sub(a,b);
+        }
+        else{
+            a.isNegative = false;
+            return sub(b,a);
+        }
+    }
+
+    return ans;
 }
 BigInteger BigInteger::sub(BigInteger a, BigInteger b) {
     BigInteger trueRes;
@@ -148,7 +186,9 @@ BigInteger BigInteger::mul(BigInteger a, BigInteger b) {
         }
     }
     BigInteger trueRes = trimp(BigInteger(res));
-    if(a.isNegative||b.isNegative)trueRes.isNegative = true;
+    if(a.isNegative&&b.isNegative)trueRes.isNegative = false;
+    else if(!a.isNegative&&!b.isNegative)trueRes.isNegative = false;
+    else trueRes.isNegative = true;
     return trueRes;
 }
 divPair BigInteger::div(BigInteger a,BigInteger b){
@@ -161,10 +201,21 @@ divPair BigInteger::div(BigInteger a,BigInteger b){
     for(int i = len;i>=0;i--){
        // if(!intermedia.bits.empty()&&intermedia.bits[0]==0)intermedia.bits.clear();
         intermedia.bits.push_back(a.bits[i]);
+        bool inv_Flag = 0;
+        if(intermedia.bits.size()<b.bits.size())continue;
         //intermedia = trimp(intermedia);
         std::reverse(intermedia.bits.begin(),intermedia.bits.end());
        // fuck1(comp(intermedia,b));
         while(comp(intermedia,b)!=-1){
+              if(comp(b,two)==0){
+                  int len = intermedia.bits.size();
+                  int now = 0;
+                  for(int i = len-1;i>=0;i--)now = now*10+intermedia.bits[i];
+                  //fuck2(len,now);
+                  res[i] = now/2;
+                  intermedia = BigInteger(now&1);
+                  break;
+              }
               //fuck3(intermedia.bits[0],b.bits.size(),intermedia.bits.size());
               intermedia = sub(intermedia,b);
               //fuck2(intermedia.bits[0],intermedia.bits[1]);
@@ -188,8 +239,9 @@ BigInteger BigInteger::euclidean(BigInteger a, BigInteger b) {
         small = b;
         big = a;
     }
+    divPair  qr;
     while(comp(small, zero) == 1){
-        divPair qr = div(big, small);
+        qr = div(big, small);
         big = small; small = qr.second;
     }
     return big;
@@ -219,18 +271,17 @@ BigInteger BigInteger::extendEuclidean(BigInteger a, BigInteger n, BigInteger&x)
      BigInteger judge,y;
      judge = ex_gcd(a,n,x,y);
      if(x.isNegative) x.isNegative = false,x = sub(n,x);
-     x = add(div(x,n).second,n);
-     x = div(x,n).second;
      return judge;
 }
 
 std::vector<int> BigInteger::getBit(BigInteger a) {
+    if(a.getByteBits().size()!=0)return a.getByteBits();
     std::vector<int> res;
     BigInteger tmp = a;
+    divPair now;
     while(comp(tmp,two)!=-1){
-        divPair now = div(tmp,two);
-        if(comp(now.second,zero)==0)res.push_back(0);
-        else res.push_back(1);
+        now = div(tmp,two);
+        res.push_back(now.second.getBits()[0]);
         tmp = now.first;
         //tmp.PrintBits();
     }
@@ -240,10 +291,15 @@ std::vector<int> BigInteger::getBit(BigInteger a) {
 
 
 BigInteger BigInteger::fastExponent(BigInteger a, BigInteger e, BigInteger n) {
-    std::vector<int> tmpBit = BigInteger::getBit(e);
+    std::vector<int> tmpBit;
+    if(e.getByteBits().size()!=0)tmpBit = e.getByteBits();
+    else tmpBit = getBit(e);
+   // fuck2(tmpBit.size(),getBit(e).size());
     BigInteger basis = a,res(std::vector<int>(1,1));
     int len = tmpBit.size();
   //  fuck2(len,e.getBits()[0]);
+    std::chrono::time_point<std::chrono::system_clock> start, end;
+    start = std::chrono::system_clock::now();
     for(int i = 0;i <=len-1;i++){
         if(tmpBit[i]){
            res = div(mul(res,basis),n).second;
@@ -251,19 +307,103 @@ BigInteger BigInteger::fastExponent(BigInteger a, BigInteger e, BigInteger n) {
         basis = div(mul(basis,basis),n).second;
     }
     res = div(res,n).second;
+    end = std::chrono::system_clock::now();
+    std::cout << "generation time111: " << std::dec << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
     return res;
 }
 
-BigInteger BigInteger::fastExponentNewton(BigInteger a, BigInteger e) {
-     int comp_result = comp(a,*this);
-     BigInteger a_mod(zero);
-     if(comp_result==0)
-         return zero;
-     if(comp_result == 1)
-         a_mod = div(a,*this).second;
-     else
-         a_mod = a;
+void BigInteger::ComputeInverse() {
+    int len = bits.size();
+    std::vector<int> tmp;
+    tmp.push_back(0);
+    tmp.push_back(1);
+    BigInteger ten(tmp);
+    BigInteger trueLen(len);
+    BigInteger pp = fastExponent(ten,trueLen,*this);
+    Inverse = pp.bits;
+}
+void BigInteger::RightShift() {
+    std::vector<int> tmp;
+    int len = this->getBits().size();
+    for(int i = 1;i<len;i++)tmp.push_back(this->getBits()[i]);
+    (*this).bits = tmp;
+    if((*this).bits.size()==0)(*this).bits.push_back(0);
+}
 
+
+void BigInteger::Reduce() {
+   std::vector<int> tmp = getBit(three);
+   int len = tmp.size();
+   BigInteger res = one;
+   for(int i = len-1;i>=0;i--){
+       res = mul(res,res);
+       res.bits = std::vector<int>(res.bits.begin(),res.bits.begin()+1);
+       if(tmp[i]==1){
+           res = mul(res,*this);
+           res.bits = std::vector<int>(res.bits.begin(),res.bits.begin()+1);
+       }
+   }
+   res.isNegative = true;
+   intermedia = res.getBits();
+}
+BigInteger BigInteger::Mente_Mul(BigInteger a, BigInteger b) {
+    std::vector<int> tmp = this->getBits();
+    std::vector<int> bt = b.getBits();
+    int len1 = bt.size(),len2 = tmp.size();
+    while(len1<len2)bt.push_back(0),len1++;
+    BigInteger t = BigInteger(this->intermedia);
+    t.isNegative = true;
+    BigInteger D = zero;
+    BigInteger a0 = BigInteger(a.bits[0]);
+    BigInteger bi,q,d0;
+    a0.isNegative = a.isNegative;
+    bool temp;
+     std::chrono::time_point<std::chrono::system_clock> start, end;
+     start = std::chrono::system_clock::now();
+    for(int i = 0;i<len1;i++){
+        bi = BigInteger(bt[i]);
+        bi.isNegative = b.isNegative;
+        d0 = BigInteger(D.bits[0]);
+        d0.isNegative = D.isNegative;
+        q = mul(add(mul(a0,bi),d0),t);
+        temp = q.isNegative;
+        q = BigInteger(q.bits[0]);
+        q.isNegative = temp;
+        D = add(D,add(mul(a,bi),mul(q,*this)));
+        D.RightShift();
+    }
+    end = std::chrono::system_clock::now();
+    //std::cout << "generation time111: " << std::dec << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
+
+//    a.PrintBits();
+//    b.PrintBits();
+    //D.PrintBits();
+    if(comp(D,*this)!=-1)D = sub(D,*this);
+    if(comp(D,zero)==-1)D = add(D,*this);
+    //D.PrintBits();
+    return D;
+}
+
+BigInteger BigInteger::fastExponentNewton(BigInteger a, BigInteger e) {
+    if(this->Inverse.size()==0)ComputeInverse();
+    if(this->intermedia.size()==0)Reduce();
+
+    BigInteger t(Inverse);
+    BigInteger x = div(mul(a,t),*this).second;
+    std::vector<int> tmp = getBit(e);
+    int len = tmp.size();
+    std::chrono::time_point<std::chrono::system_clock> start, end;
+    start = std::chrono::system_clock::now();
+    for(int i = len-1;i>=0;i--){
+        //t.PrintBits();
+        //fuck2(i,t.getBits().size());
+        t = Mente_Mul(t,t);
+        if(tmp[i]==1)
+            t = Mente_Mul(t,x);
+    }
+    end = std::chrono::system_clock::now();
+    std::cout << "generation time111: " << std::dec << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
+    return Mente_Mul(t,one);
 }
 
 

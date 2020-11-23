@@ -1,3 +1,3 @@
-"E:\jetbrains\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\RSA-master.dir/objects.a
-E:\Mingw\bin\ar.exe cr CMakeFiles\RSA-master.dir/objects.a @CMakeFiles\RSA-master.dir\objects1.rsp
-E:\Mingw\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\RSA-master.dir/objects.a -Wl,--no-whole-archive  -o RSA-master.exe -Wl,--out-implib,libRSA-master.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\RSA-master.dir\linklibs.rsp
+"F:\xiekangpei\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\RSA-master.dir/objects.a
+F:\xiekangpei\MSYS2\mingw64\bin\ar.exe cr CMakeFiles\RSA-master.dir/objects.a @CMakeFiles\RSA-master.dir\objects1.rsp
+F:\xiekangpei\MSYS2\mingw64\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\RSA-master.dir/objects.a -Wl,--no-whole-archive  -o RSA-master.exe -Wl,--out-implib,libRSA-master.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\RSA-master.dir\linklibs.rsp
